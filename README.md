@@ -4,7 +4,7 @@
 		<br>
 		noted
 	</h1>
-	<p align="center">Markdown notes in your terminal, as if they ran on MS-DOS.<br>Opens instantly, saves as you type, keeps every note as a plain Markdown file.</p>
+	<p align="center">Markdown notes in your terminal, as if they ran on MS-DOS.<br>Opens in 2.5 ms, saves as you type, keeps every note as a plain Markdown file.</p>
 	<p align="center">
 		<a href="https://www.npmjs.com/package/@adrianmg/noted"><img src="https://img.shields.io/npm/v/%40adrianmg%2Fnoted?label=npm&color=0000aa" alt="npm version" height="18"></a>
 		<a href="https://github.com/adrianmg/noted/releases"><img src="https://img.shields.io/github/v/release/adrianmg/noted?label=release&color=00aaaa" alt="Latest release" height="18"></a>
