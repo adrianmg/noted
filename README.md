@@ -18,36 +18,23 @@
 	<br>
 </p>
 
-## Installation and Usage
-
-With Homebrew, on macOS and Linux (the tap is this repository):
+## Installation
 
 ```sh
-brew tap adrianmg/noted https://github.com/adrianmg/noted
-brew install noted
-```
-
-With npm, on macOS, Linux and Windows (Node 18 or newer):
-
-```sh
+# npm: macOS, Linux and Windows (Node 18 or newer)
 npm install -g @adrianmg/noted
+
+# Homebrew: macOS and Linux
+brew tap adrianmg/noted https://github.com/adrianmg/noted
+brew trust adrianmg/noted
+brew install noted
+
+# Install script: checks the build against the release's checksums
+curl -fsSL https://noted.computer/install | sh      # macOS, Linux
+irm https://noted.computer/install.ps1 | iex        # Windows, in PowerShell
 ```
 
-Or with neither: these download the build for your system, check it against
-the release's checksums and put `noted` on your PATH.
-
-```sh
-curl -fsSL https://noted.computer/install | sh     # macOS, Linux
-irm https://noted.computer/install.ps1 | iex       # Windows, in PowerShell
-```
-
-To start writing, run:
-
-```sh
-noted
-```
-
-More ways to start it:
+## Usage
 
 ```sh
 noted                     # a new note, cursor ready
@@ -118,8 +105,8 @@ folder…, which can move them there too. Settings are in
 ## Updating
 
 ```sh
-brew upgrade noted                 # Homebrew
 npm install -g @adrianmg/noted     # npm
+brew upgrade noted                 # Homebrew
 ```
 
 With the install scripts, run them again.
