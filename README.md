@@ -48,29 +48,14 @@ noted --help              # every option
 
 ## What it does
 
-- **Instant.** The whole screen is drawn about 2.5 ms after you press Enter,
-  even with ten thousand notes. Among a thousand, keys, opening a note and
-  finding as you type each answer in under a millisecond.
-- **Saved as you type.** There is no save button. Close the window whenever:
-  what you typed is there.
-- **Plain files you own.** One Markdown file per note, named after its first
-  line (`Grocery list.md`), in a `Noted` folder in iCloud Drive, or in
-  Documents. They open in Obsidian, iA Writer, the Files app or any editor.
-- **Markdown, lit as you type.** Headings, bold, italics, code, links,
-  quotes, task lists and tables take the theme's colors; the marks stay on
-  the page, dimmed, so nothing jumps around.
-- **Find as you type.** Titles that match come first, then notes that
-  contain what you typed. If nothing matches, `ENTER` makes a new note.
-- **Lists, tasks and tables.** `ENTER` continues a list, `^T` makes and ticks
-  tasks, `^G` puts in a table that keeps its columns lined up as you type.
-- **Folders.** Start a title with `work/` and the note is filed in a `work`
-  folder.
-- **The MS-DOS look.** Pull-down menus, Norton Commander panes, Turbo Vision
-  dialogs and eleven themes, from Turbo blue and amber phosphor to Dracula
-  and SynthWave '84, with optional CRT scanlines.
-- **Everywhere.** macOS, Linux and Windows; Terminal, iTerm2, Ghostty, kitty,
-  WezTerm, Alacritty, Windows Terminal, over SSH and in tmux. The mouse
-  works too.
+noted opens on a new note in about 2.5 ms and saves as you type, so there's
+no save button and nothing to lose. Each note is a plain Markdown file named
+after its first line, in a `Noted` folder in iCloud Drive when it's on, or
+else in Documents, where any editor can open it: `noted --path` prints where,
+and Noted ▸ Notes folder… moves them elsewhere. Markdown is lit as you type,
+finding searches every note as you type, and it all looks like MS-DOS:
+pull-down menus, Norton Commander panes and eleven themes. It runs on macOS,
+Linux and Windows, in any terminal.
 
 ## Keys
 
@@ -87,20 +72,6 @@ noted --help              # every option
 | `^Q` | Exit |
 
 On a PC, read `⌘` as `^` and `⌥` as `ALT`.
-
-## Where your notes live
-
-A `Noted` folder in iCloud Drive when it's on, or else in Documents:
-
-| | With iCloud Drive | Without it |
-|---|---|---|
-| macOS | `iCloud Drive/Noted` | `~/Documents/Noted` |
-| Windows | `iCloudDrive\Noted`, with iCloud for Windows | `Documents\Noted` |
-| Linux | | `~/Documents/Noted` |
-
-`noted --path` prints it. To keep notes somewhere else, use Noted ▸ Notes
-folder…, which can move them there too. Settings are in
-`~/.config/noted/settings` (`%APPDATA%\noted\settings` on Windows).
 
 ## Updating
 
