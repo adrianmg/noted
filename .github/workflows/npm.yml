@@ -19,6 +19,11 @@ on:
         type: choice
         options: [latest, next, previous]
         default: latest
+      package:
+        description: The package's version, if not the release's; a prerelease of it, e.g. 1.2.0-rc.1 (with tag next)
+        required: false
+        type: string
+        default: ""
 
 concurrency:
   group: npm-${{ inputs.version }}
@@ -58,7 +63,18 @@ jobs:
       # Each build checked against the release's SHA256SUMS, and this
       # system's answering with the release's version.
       - name: Pack
-        run: node npm/pack.mjs --from release --out dist
+        env:
+          PACKAGE: ${{ inputs.package }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          if [ -z "$PACKAGE" ]; then
+            node npm/pack.mjs --from release --out dist
+          elif [ "$TAG" = latest ]; then
+            echo "::error::A prerelease, $PACKAGE, isn't for npm's latest tag"
+            exit 1
+          else
+            node npm/pack.mjs --from release --version "$PACKAGE" --out dist
+          fi
       - name: Publish
         env:
           TAG: ${{ inputs.tag }}
