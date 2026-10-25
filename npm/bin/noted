@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+'use strict';
+// `noted` as npm first links it: a stand-in that starts this system's build with the same arguments, terminal
+// and exit status. On macOS and Linux, install.js then puts the build itself here, so nothing stands between
+// the shell and noted as it starts. This runs on Windows, and where install scripts are turned off.
+
+const fs = require('fs');
+const { spawnSync } = require('child_process');
+
+let exe;
+try {
+  exe = require('../builds.js').build();
+} catch (e) {
+  console.error('noted: ' + e.message);
+  process.exit(1);
+}
+if (process.platform !== 'win32') {
+  // A package manager may unpack the build without its execute bit.
+  try { fs.accessSync(exe, fs.constants.X_OK); } catch (e) { try { fs.chmodSync(exe, 0o755); } catch (e2) { /* reported below */ } }
+}
+const run = spawnSync(exe, process.argv.slice(2), { stdio: 'inherit' });
+if (run.error) {
+  console.error('noted: ' + run.error.message);
+  process.exit(1);
+}
+if (run.signal) process.kill(process.pid, run.signal);
+process.exit(run.status === null ? 1 : run.status);

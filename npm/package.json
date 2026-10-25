@@ -1,0 +1,54 @@
+{
+  "name": "@adrianmg/noted",
+  "version": "0.0.0",
+  "description": "Markdown notes in your terminal, as if they ran on MS-DOS: opens in about 2.5 ms, saves as you type, and keeps each note as a plain .md file.",
+  "keywords": [
+    "notes",
+    "markdown",
+    "terminal",
+    "tui",
+    "cli",
+    "ms-dos",
+    "icloud"
+  ],
+  "homepage": "https://noted.computer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianmg/noted.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adrianmg/noted/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Adrián Mato",
+    "url": "https://adrianmato.com"
+  },
+  "bin": {
+    "noted": "bin/noted"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "files": [
+    "bin/",
+    "vendor/",
+    "builds.js",
+    "install.js"
+  ],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

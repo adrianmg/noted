@@ -1,0 +1,65 @@
+# Publishes @adrianmg/noted to npm from this repository's release of the
+# same version, with npm's trusted publishing: no token, and a provenance
+# statement that ties the package to this workflow and these files.
+#
+# Started by noted's release command (scripts/release.mjs, which also keeps
+# this file here); by hand: Actions ▸ npm ▸ Run workflow. npm must trust it
+# once: npm trust github @adrianmg/noted --file npm.yml --repo adrianmg/noted
+name: npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The release's version, e.g. 1.2.0 (its tag is v1.2.0)
+        required: true
+        type: string
+      tag:
+        description: npm's dist-tag
+        type: choice
+        options: [latest, next, previous]
+        default: latest
+
+concurrency:
+  group: npm-${{ inputs.version }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: npm that publishes with trusted publishing (11.5.1 or newer)
+        run: |
+          npm --version
+          node -e 'const [a, b, c] = process.argv[1].split(".").map(Number); process.exit(a > 11 || (a === 11 && (b > 5 || (b === 5 && c >= 1))) ? 0 : 1)' "$(npm --version)" \
+            || npm install -g npm@^11.5.1
+      - name: The release's files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::$VERSION isn't a version like 1.2.0 or 1.2.0-rc.1"
+            exit 1
+          fi
+          gh release download "v$VERSION" -R "$GITHUB_REPOSITORY" -D release
+      # Each build checked against the release's SHA256SUMS, and this
+      # system's answering with the release's version.
+      - name: Pack
+        run: node npm/pack.mjs --from release --out dist
+      - name: Publish
+        env:
+          TAG: ${{ inputs.tag }}
+        run: npm publish "$PWD"/dist/*.tgz --provenance --access public --tag "$TAG"

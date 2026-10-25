@@ -98,7 +98,8 @@ up on [Twitter](https://twitter.com/adrianmg).
 
 This repository holds noted's releases, its Homebrew formula and this README;
 the npm package, [@adrianmg/noted](https://www.npmjs.com/package/@adrianmg/noted),
-ships the same builds.
+ships the same builds, and is published from here, with provenance. To report
+a vulnerability, see [SECURITY.md](https://github.com/adrianmg/noted/blob/main/SECURITY.md).
 
 ## License
 
