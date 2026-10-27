@@ -1,0 +1,54 @@
+{
+ "machine": {
+  "date": "2026-10-27T00:00:45-07:00",
+  "machine": "MacBook Pro",
+  "model": "Mac16,6",
+  "chip": "Apple M4 Max",
+  "cores": {
+   "total": 14,
+   "performance": 10,
+   "efficiency": 4
+  },
+  "memory GB": 36,
+  "macOS": "15.7.3 (24G419)",
+  "power": "AC Power",
+  "low power mode": null,
+  "python": "3.9.6"
+ },
+ "versions": {
+  "noted": "noted 1.1.0",
+  "noted sha256": "efa41878322504956b27b01e7726292b0c6533e1a74e43e28e1f5118d024d4ca",
+  "Apple Notes": "4.12.7",
+  "Obsidian": "1.8.10",
+  "VS Code": "1.125.0-insider",
+  "vim": "VIM - Vi IMproved 9.1 (2024 Jan 02, compiled Sep 29 2025 21:20:54)",
+  "Neovim": "NVIM v0.12.6",
+  "Emacs": "GNU Emacs 31.1",
+  "noted built from": "noted 1.1.0 built locally from master a991156, the code the 1.1.0 release ships"
+ },
+ "settings": {
+  "notes": 1000,
+  "terminal": "120 x 40, xterm-256color",
+  "launches": {
+   "terminal apps": 20,
+   "Apple Notes, Obsidian and VS Code": 7
+  },
+  "keys": 40,
+  "notes opened": 20,
+  "long note": "30,000 lines",
+  "long note trials": 4,
+  "busy loop": true,
+  "quick": false
+ },
+ "load before": [
+  3.52001953125,
+  5.17431640625,
+  6.408203125
+ ],
+ "helper overhead ms": 1.3191260000000038,
+ "load after": [
+  5.05126953125,
+  5.22021484375,
+  6.04248046875
+ ]
+}

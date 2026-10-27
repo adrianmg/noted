@@ -34,6 +34,15 @@ curl -fsSL https://noted.computer/install | sh      # macOS, Linux
 irm https://noted.computer/install.ps1 | iex        # Windows, in PowerShell
 ```
 
+If npm warns that an install script was blocked, noted is still installed:
+run `noted`. The optional script improves startup speed on macOS and Linux.
+To allow that optimization, reinstall with an npm version that supports
+`--allow-scripts`:
+
+```sh
+npm install -g @adrianmg/noted --allow-scripts=@adrianmg/noted
+```
+
 ## Usage
 
 ```sh
@@ -46,16 +55,42 @@ noted --path              # print where your notes are
 noted --help              # every option
 ```
 
+## Import existing notes or change location
+
+Already have notes in Obsidian, iA Writer, or another app that saves
+Markdown? Open their folder with `--dir`; quote paths with spaces:
+
+```sh
+noted --dir ~/Notes
+noted --dir "$HOME/Documents/My Notes"
+```
+
+Existing notes open in place, including notes in nested folders, and new
+notes are saved there. There is no separate import or conversion step.
+`--dir` applies only to this run: it does not change the default or move
+notes from your previous folder.
+
+To change the default permanently, use Noted ▸ Notes folder…. The current
+location is shown read-only, and "Folder to use" starts with that path.
+**Use new folder** becomes available when you choose a valid, different
+location. **Bring existing notes from '…'** then lets you move your current
+notes along, or leave them where they are by unticking it. Existing notes
+in the chosen folder appear either way; Cancel changes nothing.
+
 ## What it does
 
-noted opens on a new note in about 2.5 ms and saves as you type, so there's
-no save button and nothing to lose. Each note is a plain Markdown file named
+noted opens on a new note in about 2.5 ms, answers each key in under 0.1 ms
+(about 0.1 ms in a 30,000-line note), and saves as you type, so there's no
+save button and nothing to lose. Each note is a plain Markdown file named
 after its first line, in a `Noted` folder in iCloud Drive when it's on, or
 else in Documents, where any editor can open it: `noted --path` prints where,
-and Noted ▸ Notes folder… moves them elsewhere. Markdown is lit as you type,
+and Noted ▸ Notes folder… chooses where notes open and save. Markdown is lit as you type,
 finding searches every note as you type, and it all looks like MS-DOS:
 pull-down menus, Norton Commander panes and eleven themes. It runs on macOS,
 Linux and Windows, in any terminal.
+
+How it compares with Apple Notes, Obsidian, VS Code, vim and Emacs, measured
+on one Mac with every sample published: [benchmarks](https://github.com/adrianmg/noted/tree/main/benchmarks).
 
 ## Keys
 

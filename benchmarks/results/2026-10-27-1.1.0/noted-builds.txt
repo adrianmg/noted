@@ -1,0 +1,13 @@
+median                                         1.0.0         1.1.0
+1,000 notes: launch ms                         2.488         2.498
+1,000 notes: memory MB                         4.985         5.328
+1,000 notes: open a note ms                    0.174         0.157
+1,000 notes: type a key ms                     0.130         0.059
+1,000 notes: find, each key ms                 0.269         0.231
+10,000 notes: launch ms                        2.461         2.501
+10,000 notes: memory MB                       30.625        28.164
+10,000 notes: open a note ms                   0.235         0.194
+10,000 notes: type a key ms                    0.147         0.047
+10,000 notes: find, each key ms                1.563         1.573
+30,000-line note, type at the end ms           1.593         0.032
+30,000-line note, type at the start ms         1.441         0.048
