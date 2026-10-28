@@ -108,6 +108,27 @@ on one Mac with every sample published: [benchmarks](https://github.com/adrianmg
 
 On a PC, read `⌘` as `^` and `⌥` as `ALT`.
 
+### Vim keys
+
+Options ▸ Vim keys (`⌥O` then `m`) turns the note modal, as in vim. It's off
+until you turn it on. The footer shows the mode, and the cursor is a bar in
+Insert mode. A new note starts in Insert mode, an opened one in Normal.
+
+| Key | |
+|---|---|
+| `i` `a` `I` `A` `o` `O` | Insert mode; `ESC` leaves it |
+| `h` `j` `k` `l` `w` `b` `e` `0` `^` `$` `gg` `G` `f` `t` `{` `}` `%` | Move, with counts: `3w` `5j` |
+| `d` `c` `y` | With a motion or a text object: `dw` `c$` `yy` `dd` `ciw` `ci"` `da(` |
+| `x` `D` `C` `s` `p` `P` `r` `~` `J` `>>` `<<` | As in vim |
+| `u` `^R` | Undo, redo; a whole insert is one step |
+| `/` | noted's find, across all your notes |
+
+In the notes list, `j` `k` go down and up. It's the core of vim, checked
+against vim itself, not all of it: there's no Visual mode (`v`), `.`,
+registers, marks, macros or `:` commands, and a key vim has that this
+doesn't says so in the footer. `^` keys stay noted's, so `^F` finds and `^D`
+deletes a note.
+
 ## Updating
 
 ```sh
