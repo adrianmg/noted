@@ -49,7 +49,8 @@ npm install -g @adrianmg/noted --allow-scripts=@adrianmg/noted
 noted                     # a new note, cursor ready
 noted buy oat milk        # a new note that starts with those words
 noted --theme amber       # turbo, amber, phosphor, charcoal, lime, midnight,
-                          # catppuccin, dracula, gruvbox, rosepine, synthwave
+                          # c64, catppuccin, gruvbox, kanagawa, solarized,
+                          # synthwave
 noted --dir ~/Notes       # keep notes in another folder this time
 noted --path              # print where your notes are
 noted --help              # every option
@@ -86,7 +87,7 @@ after its first line, in a `Noted` folder in iCloud Drive when it's on, or
 else in Documents, where any editor can open it: `noted --path` prints where,
 and Noted ▸ Notes folder… chooses where notes open and save. Markdown is lit as you type,
 finding searches every note as you type, and it all looks like MS-DOS:
-pull-down menus, Norton Commander panes and eleven themes. It runs on macOS,
+pull-down menus, Norton Commander panes and twelve themes. It runs on macOS,
 Linux and Windows, in any terminal.
 
 How it compares with Apple Notes, Obsidian, VS Code, vim and Emacs, measured
