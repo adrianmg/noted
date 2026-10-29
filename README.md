@@ -102,6 +102,7 @@ on one Mac with every sample published: [benchmarks](https://github.com/adrianmg
 | `^N` | New note |
 | `^T` | Make a task, tick it |
 | `^G` | Insert a table |
+| `⌥↩` or `⌥`-click | View the image at the cursor |
 | `^D` | Delete the note (to the Trash; `^Z` puts it back) |
 | `F10` | Menus |
 | `F1` | Every key |
