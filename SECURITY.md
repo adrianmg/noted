@@ -25,7 +25,7 @@ network request is the update check, added in 1.3.0 and on by default.
 
 - **What:** an HTTPS request, with `curl`, for
   `https://noted.computer/download/latest/VERSION`: a static text file on
-  Vercel holding just the latest version number, such as `1.4.0`. It loads
+  Vercel holding just the latest version number, such as `1.5.0`. It loads
   none of the website's scripts.
 - **When:** shortly after noted starts, then not again for 24 hours after a
   successful check (a failed one is retried at the next launch). Noted ▸
