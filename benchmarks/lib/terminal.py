@@ -341,7 +341,7 @@ def noted(binary, notes, root, launches=20, keys=40, opens=20, trials=4, log=pri
         with open(os.path.join(folder, "Profile.md"), "w") as fh: fh.write("Profile\n" + LONG)
         t = start(folder, work)
         t.settle(0.5, timeout=30)
-        for k in (b"\x06", b"Profile", b"\r", b"\x1b[1;5F"): t.send(k)
+        for k in (b"\x10", b"Profile", b"\r", b"\x1b[1;5F"): t.send(k)
         ends += [t.key(bytes([c])) for c in b"abcdefghij"]
         for k in (b"\x1b[1;5H", b"\x1b[B", b"\x1b[H"): t.send(k)
         starts += [t.key(bytes([c])) for c in b"klmnopqrst"]

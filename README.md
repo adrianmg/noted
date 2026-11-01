@@ -48,9 +48,10 @@ npm install -g @adrianmg/noted --allow-scripts=@adrianmg/noted
 ```sh
 noted                     # a new note, cursor ready
 noted buy oat milk        # a new note that starts with those words
-noted --theme amber       # system, turbo, amber, phosphor, charcoal, lime,
-                          # midnight, c64, catppuccin, gruvbox, kanagawa,
-                          # solarized, synthwave
+noted --theme amber       # system, turbo, amber, charcoal, c64,
+                          # midnight, phosphor, ayu, catppuccin, cobalt2,
+                          # darcula, dracula, githubdark, gruvbox, gruvboxlight,
+                          # nord, redsands, solarized, synthwave
 noted --dir ~/Notes       # keep notes in another folder this time
 noted --path              # print where your notes are
 noted --help              # every option

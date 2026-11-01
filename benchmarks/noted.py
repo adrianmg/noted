@@ -141,7 +141,7 @@ def notes_bench(binary, folder, home):
         n.drain(1.0)
         found = []
         for q in QUERIES:
-            n.key(b"\x06")
+            n.key(b"\x10")
             found += [n.key(c.encode()) for c in q]
             n.key(b"\x1b")
             n.drain(0.3)
@@ -162,7 +162,7 @@ def long_note_bench(binary, root, trials=4):
         try:
             n.frame()
             n.drain(0.5)
-            for k in (b"\x06", b"Profile", b"\r", b"\x1b[1;5F"):
+            for k in (b"\x10", b"Profile", b"\r", b"\x1b[1;5F"):
                 n.key(k)
             ends += [n.key(bytes([c])) for c in b"abcdefghij"]
             for k in (b"\x1b[1;5H", b"\x1b[B", b"\x1b[H"):
