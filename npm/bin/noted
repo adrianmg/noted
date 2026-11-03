@@ -5,7 +5,8 @@
 // the shell and noted as it starts. This runs on Windows, and where install scripts are turned off.
 
 const fs = require('fs');
-const { spawnSync } = require('child_process');
+const os = require('os');
+const { spawn } = require('child_process');
 
 let exe;
 try {
@@ -18,10 +19,23 @@ if (process.platform !== 'win32') {
   // A package manager may unpack the build without its execute bit.
   try { fs.accessSync(exe, fs.constants.X_OK); } catch (e) { try { fs.chmodSync(exe, 0o755); } catch (e2) { /* reported below */ } }
 }
-const run = spawnSync(exe, process.argv.slice(2), { stdio: 'inherit' });
-if (run.error) {
-  console.error('noted: ' + run.error.message);
-  process.exit(1);
+const child = spawn(exe, process.argv.slice(2), { stdio: 'inherit' });
+// What would end this stand-in ends noted instead, which then ends it the same way: a supervisor's SIGTERM,
+// say, never leaves noted running on its own. On Windows, where these aren't signals and child.kill() is
+// TerminateProcess, ^C reaches noted from the console itself, and nothing more is done.
+const ENDINGS = ['SIGINT', 'SIGTERM', 'SIGHUP'];
+for (const signal of ENDINGS) {
+  process.on(signal, () => { if (process.platform !== 'win32') child.kill(signal); });
 }
-if (run.signal) process.kill(process.pid, run.signal);
-process.exit(run.status === null ? 1 : run.status);
+child.on('error', (e) => {
+  console.error('noted: ' + e.message);
+  process.exit(1);
+});
+child.on('exit', (status, signal) => {
+  if (signal) {
+    for (const s of ENDINGS) process.removeAllListeners(s);
+    try { process.kill(process.pid, signal); } catch (e) { /* exits below */ }
+    process.exit(128 + (os.constants.signals[signal] || 0));
+  }
+  process.exit(status === null ? 1 : status);
+});
