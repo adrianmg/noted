@@ -11,24 +11,24 @@ class Noted < Formula
   on_macos do
     # One binary for Apple silicon and Intel.
     on_arm do
-      url "https://github.com/adrianmg/noted/releases/download/v1.9.2/noted-macos-universal.tar.gz"
-      sha256 "10db9b22d065e49caba60c66b4da527253457721df012dbfc173c7f1a684db55"
+      url "https://github.com/adrianmg/noted/releases/download/v1.9.3/noted-macos-universal.tar.gz"
+      sha256 "b4eb22d6afba2816d0344c340983b48717286d279f6aebe6a59a1eedd0ed9e09"
     end
     on_intel do
-      url "https://github.com/adrianmg/noted/releases/download/v1.9.2/noted-macos-universal.tar.gz"
-      sha256 "10db9b22d065e49caba60c66b4da527253457721df012dbfc173c7f1a684db55"
+      url "https://github.com/adrianmg/noted/releases/download/v1.9.3/noted-macos-universal.tar.gz"
+      sha256 "b4eb22d6afba2816d0344c340983b48717286d279f6aebe6a59a1eedd0ed9e09"
     end
   end
 
   on_linux do
     # Static: any distribution.
     on_intel do
-      url "https://github.com/adrianmg/noted/releases/download/v1.9.2/noted-linux-x86_64.tar.gz"
-      sha256 "65dadb341a8949e820536e6fa6395b5c6275ac45506f6009be22d9429954b97b"
+      url "https://github.com/adrianmg/noted/releases/download/v1.9.3/noted-linux-x86_64.tar.gz"
+      sha256 "7d79a27765b93f6cbb07a552355b1ea14e514d112005159a684d7320afa3571b"
     end
     on_arm do
-      url "https://github.com/adrianmg/noted/releases/download/v1.9.2/noted-linux-aarch64.tar.gz"
-      sha256 "ba3e4ce8f1f63439b8f5992854f16d0d072567004714a5fed1fdc2d4060eeb3f"
+      url "https://github.com/adrianmg/noted/releases/download/v1.9.3/noted-linux-aarch64.tar.gz"
+      sha256 "b0a5fbe97e59325c531f9338f0500244e40e84be00b8f7f52adb470c49032290"
     end
   end
 
